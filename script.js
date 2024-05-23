@@ -1,5 +1,11 @@
-let gridSize = 4
-
+let gridSize = 30
+const random = (min,max) => {
+    return Math.floor(Math.random() * (max - min)) +  min
+}
+let r
+let g
+let b 
+let rgb
 
 //Create grid
 function createGrid(gridSize) {
@@ -15,6 +21,16 @@ function createGrid(gridSize) {
 
 createGrid(gridSize*gridSize)
 
+//random the color when enter the grid
+const grid = document.querySelector(".grid")
+grid.addEventListener("mouseenter", () => {
+    r = random(0, 255)
+    g = random(0, 255)
+    b = random(0, 255)
+    rgb = `rgb(${r}, ${g}, ${b})`
+})
+
+
 //Event
 const allSquare = document.querySelectorAll(".grid div")
 const changeGridSize = document.querySelector("#changesize")
@@ -26,7 +42,7 @@ function setEventLisenter(aSquare) {
 
         square.addEventListener("mouseenter", () => {
             // square.setAttribute("style", "background-color: red")
-            square.style.cssText = `background-color: red; height: ${100/gridSize}%; width: ${100/gridSize}%`
+            square.style.cssText = `background-color: ${rgb}; height: ${100/gridSize}%; width: ${100/gridSize}%`
         })
         square.addEventListener("mouseleave", () => {
             // square.setAttribute("style", "background-color: white;")
