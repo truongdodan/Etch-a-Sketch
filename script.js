@@ -30,6 +30,20 @@ grid.addEventListener("mouseenter", () => {
     rgb = `rgb(${r}, ${g}, ${b})`
 })
 
+//darker the color
+grid.addEventListener("mouseover", () => {
+    if(r > 0) {
+        r-=0.3
+    }
+    if(g > 0) {
+        g-=0.3
+    }
+    if(b > 0) {
+        b-=0.3
+    }
+    rgb = `rgb(${r}, ${g}, ${b})`
+
+})
 
 //Event
 const allSquare = document.querySelectorAll(".grid div")
