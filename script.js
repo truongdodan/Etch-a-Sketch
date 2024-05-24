@@ -71,9 +71,10 @@ function setEventLisenter(aSquare) {
 setEventLisenter(allSquare)
 
 changeGridSize.addEventListener("click", () => {
-    allSquare.forEach((square) => {
+    /* allSquare.forEach((square) => {
         square.remove()
-    })
+    }) */
+    grid.innerHTML = ''
     gridSize = prompt("Enter the new grid size (Maximum gridsize: 100); Grid = gridsize*gridsize): ")
     createGrid(gridSize*gridSize)
     
